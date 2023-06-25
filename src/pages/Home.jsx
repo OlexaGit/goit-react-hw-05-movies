@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import Loader from '../components/Loader/Loader';
 import { getMovies } from '../components/Api/JsonthemoviedbApi';
 import ErrorWrapper from './Error/ErrorWrapper';
-import Info from 'components/Info/Info';
+// import Info from 'components/Info/Info';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
