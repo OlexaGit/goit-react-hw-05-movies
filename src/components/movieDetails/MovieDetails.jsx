@@ -27,7 +27,7 @@ const MovieDetails = () => {
     getMove();
   }, [id]);
 
-  const { title, vote_average, overview } = movies;
+  const { title, vote_average, overview, backdrop_path } = movies;
   // console.log(movies);
   return (
     <main>
@@ -35,8 +35,9 @@ const MovieDetails = () => {
       <ErrorWrapper isError={isError}>
         <div className={css.details}>
           <img
-            src={`https://image.tmdb.org/t/p/w400${movies.backdrop_path}`}
+            src={`https://image.tmdb.org/t/p/original${backdrop_path}`}
             alt=""
+            height={360}
           />
           <div>
             <h2>{title}</h2>

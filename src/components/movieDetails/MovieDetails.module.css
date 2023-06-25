@@ -1,6 +1,7 @@
 .details {
   display: flex;
   margin-top: 50px;
+  gap: 30px;
 }
 .addInform {
   padding: 8px 0;
