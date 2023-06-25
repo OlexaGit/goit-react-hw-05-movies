@@ -31,10 +31,14 @@ const Cast = () => {
         <ul>
           {castData.map(({ id, name, character, profile_path }) => (
             <div key={id} className={css.item}>
-              <img
-                src={`https://image.tmdb.org/t/p/w200${profile_path}`}
-                alt=""
-              />
+              {profile_path ? (
+                <img
+                  src={`https://image.tmdb.org/t/p/w200${profile_path}`}
+                  alt=""
+                />
+              ) : (
+                <p>Non photo</p>
+              )}
               <li className={css.itemName}>
                 <div>{name}</div>
                 <p>Character: {character}</p>
