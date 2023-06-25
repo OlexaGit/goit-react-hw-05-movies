@@ -9,20 +9,31 @@ const MovieDetails = () => {
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
+    async function getMove() {
+      try {
+        const data = await detailsMovies(id);
+        const movies = data;
+        setMovies(movies);
+      } catch (error) {
+        setIsError(true);
+        console.error(error);
+      } finally {
+      }
+    }
     getMove();
   }, [id]);
 
-  const getMove = async () => {
-    try {
-      const data = await detailsMovies(id);
-      const movies = data;
-      setMovies(movies);
-    } catch (error) {
-      setIsError(true);
-      console.error(error);
-    } finally {
-    }
-  };
+  // const getMove = async () => {
+  //   try {
+  //     const data = await detailsMovies(id);
+  //     const movies = data;
+  //     setMovies(movies);
+  //   } catch (error) {
+  //     setIsError(true);
+  //     console.error(error);
+  //   } finally {
+  //   }
+  // };
 
   console.log(movies);
   const { genres } = movies;

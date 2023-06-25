@@ -28,7 +28,7 @@ const Home = () => {
       setIsLoaderVisible(false);
     }
   };
-  console.log(movies);
+
   return (
     <main>
       <h1> Trending today</h1>
