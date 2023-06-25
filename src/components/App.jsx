@@ -15,7 +15,7 @@ export const App = () => {
         <Route path="movies" element={<Movies />} />
         <Route path="movies/:id" element={<MovieDetails />}>
           <Route path="cast" element={<Cast />} />
-          <Route path="id" element={<Reviews />} />
+          <Route path="reviews" element={<Reviews />} />
         </Route>
       </Route>
 

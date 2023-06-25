@@ -24,7 +24,6 @@ const Cast = () => {
     getMove();
   }, [id]);
 
-  console.log(castData);
   return (
     <section>
       <ErrorWrapper isError={isError}>
@@ -37,7 +36,7 @@ const Cast = () => {
                   alt=""
                 />
               ) : (
-                <p>Non photo</p>
+                <p>Sorry, No photo</p>
               )}
               <li className={css.itemName}>
                 <div>{name}</div>

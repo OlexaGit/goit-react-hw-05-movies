@@ -31,12 +31,12 @@ export const castMovies = async id => {
   return data;
 };
 
-// export const reviewsMovies = async query => {
-//   const { data } = await axios.get(
-//     `https://api.themoviedb.org/3/movie/movie_id/reviews?api_key=${myApiKey}`
-//   );
-//   return data;
-// };
+export const reviewsMovies = async id => {
+  const { data } = await axios.get(
+    `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${myApiKey}`
+  );
+  return data;
+};
 
 // 'https://api.themoviedb.org/3/movie/movie_id',
 // 'https://api.themoviedb.org/3/movie/movie_id/credits';
