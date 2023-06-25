@@ -12,22 +12,21 @@ const Home = () => {
   const [isLoaderVisible, setIsLoaderVisible] = useState(false);
 
   useEffect(() => {
+    async function getMove() {
+      try {
+        setIsLoaderVisible(true);
+        const data = await getMovies();
+        const movies = data.results;
+        setMovies(movies);
+      } catch (error) {
+        setIsError(true);
+        console.error(error);
+      } finally {
+        setIsLoaderVisible(false);
+      }
+    }
     getMove();
   }, []);
-
-  const getMove = async () => {
-    try {
-      setIsLoaderVisible(true);
-      const data = await getMovies();
-      const movies = data.results;
-      setMovies(movies);
-    } catch (error) {
-      setIsError(true);
-      console.error(error);
-    } finally {
-      setIsLoaderVisible(false);
-    }
-  };
 
   return (
     <main>

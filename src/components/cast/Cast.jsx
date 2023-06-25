@@ -8,20 +8,20 @@ const Cast = () => {
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
+    async function getMove() {
+      try {
+        const data = await castMovies(id);
+        const movies = data;
+        setMovies(movies);
+      } catch (error) {
+        setIsError(true);
+        console.error(error);
+      } finally {
+      }
+    }
     getMove();
   }, [id]);
 
-  const getMove = async () => {
-    try {
-      const data = await castMovies(id);
-      const movies = data;
-      setMovies(movies);
-    } catch (error) {
-      setIsError(true);
-      console.error(error);
-    } finally {
-    }
-  };
   console.log(movies);
   return (
     <section>

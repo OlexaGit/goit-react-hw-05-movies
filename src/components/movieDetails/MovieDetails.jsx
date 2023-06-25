@@ -6,6 +6,7 @@ import css from './MovieDetails.module.css';
 const MovieDetails = () => {
   const { id } = useParams();
   const [movies, setMovies] = useState([]);
+  const [genres, setGenres] = useState([]);
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
@@ -14,6 +15,8 @@ const MovieDetails = () => {
         const data = await detailsMovies(id);
         const movies = data;
         setMovies(movies);
+        const genres = movies.genres;
+        setGenres(genres);
       } catch (error) {
         setIsError(true);
         console.error(error);
@@ -23,21 +26,8 @@ const MovieDetails = () => {
     getMove();
   }, [id]);
 
-  // const getMove = async () => {
-  //   try {
-  //     const data = await detailsMovies(id);
-  //     const movies = data;
-  //     setMovies(movies);
-  //   } catch (error) {
-  //     setIsError(true);
-  //     console.error(error);
-  //   } finally {
-  //   }
-  // };
-
+  const { title, vote_average, overview } = movies;
   console.log(movies);
-  const { genres } = movies;
-
   return (
     <main>
       <button>Go back</button>
@@ -47,14 +37,14 @@ const MovieDetails = () => {
           alt=""
         />
         <div>
-          <h2>{movies.title}</h2>
-          <p>{`User Score: ${movies.vote_average}`}</p>
+          <h2>{title}</h2>
+          <p>{`User Score: ${vote_average}`}</p>
           <h4>Overview</h4>
-          <p>{movies.overview}</p>
+          <p>{overview}</p>
           <h3>Genres</h3>
-          {/* {genres.map(({ name }) => (
-          <div>{name}</div>
-        ))} */}
+          {genres.map(({ id, name }) => (
+            <span key={id}>{name}, </span>
+          ))}
         </div>
       </div>
       <ul>
