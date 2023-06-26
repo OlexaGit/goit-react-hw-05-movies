@@ -9,12 +9,13 @@ export const getMovies = async () => {
   return data;
 };
 
-// export const searchMovies = async query => {
-//   const { data } = await axios.get(
-//     `https://api.themoviedb.org/3/search/movie?api_key=${myApiKey}&query=${query}`
-//   );
-//   return data;
-// };
+export const searchMovies = async query => {
+  console.log(query);
+  const { data } = await axios.get(
+    `https://api.themoviedb.org/3/search/movie?api_key=${myApiKey}&query=${query}`
+  );
+  return data;
+};
 
 export const detailsMovies = async id => {
   console.log(id);
