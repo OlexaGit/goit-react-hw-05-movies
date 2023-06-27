@@ -23,7 +23,6 @@ const Reviews = () => {
     getMove();
   }, [id]);
 
-  console.log(reviewData);
   return (
     <section>
       <ErrorWrapper isError={isError}>

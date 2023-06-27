@@ -10,7 +10,6 @@ export const getMovies = async () => {
 };
 
 export const searchMovies = async query => {
-  console.log(query);
   const { data } = await axios.get(
     `https://api.themoviedb.org/3/search/movie?api_key=${myApiKey}&query=${query}`
   );
@@ -18,7 +17,6 @@ export const searchMovies = async query => {
 };
 
 export const detailsMovies = async id => {
-  console.log(id);
   const { data } = await axios.get(
     `https://api.themoviedb.org/3/movie/${id}?api_key=${myApiKey}`
   );
@@ -38,8 +36,3 @@ export const reviewsMovies = async id => {
   );
   return data;
 };
-
-// 'https://api.themoviedb.org/3/movie/movie_id',
-// 'https://api.themoviedb.org/3/movie/movie_id/credits';
-// 'https://api.themoviedb.org/3/movie/movie_id/reviews';
-//api.themoviedb.org/3/search/movie?api_key=###&query=transformers
