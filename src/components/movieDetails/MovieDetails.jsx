@@ -1,9 +1,10 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Suspense } from 'react';
 import { Outlet, Link, useParams, useLocation } from 'react-router-dom';
 import { detailsMovies } from '../Api/JsonthemoviedbApi';
 import Button from '../button/Button';
 import ErrorWrapper from 'pages/Error/ErrorWrapper';
 import css from './MovieDetails.module.css';
+import Loader from 'components/Loader/Loader';
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -64,7 +65,15 @@ const MovieDetails = () => {
             </li>
           </ul>
         </div>
-        <Outlet />
+        <Suspense
+          fallback={
+            <div>
+              <Loader />
+            </div>
+          }
+        >
+          <Outlet />
+        </Suspense>
       </ErrorWrapper>
     </main>
   );

@@ -1,5 +1,7 @@
+import { Suspense } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import css from './SharedLayout.module.css';
+import Loader from '../Loader/Loader';
 
 const SharedLayout = () => {
   const handleActiveStyle = ({ isActive }) => {
@@ -27,7 +29,15 @@ const SharedLayout = () => {
           </NavLink>
         </nav>
       </header>
-      <Outlet />
+      <Suspense
+        fallback={
+          <div>
+            <Loader />
+          </div>
+        }
+      >
+        <Outlet />
+      </Suspense>
     </section>
   );
 };
