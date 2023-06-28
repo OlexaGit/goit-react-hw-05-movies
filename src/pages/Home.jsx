@@ -4,12 +4,13 @@ import Loader from '../components/Loader/Loader';
 import { getMovies } from '../components/Api/JsonthemoviedbApi';
 import ErrorWrapper from './Error/ErrorWrapper';
 // import Info from 'components/Info/Info';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
   const [isError, setIsError] = useState(false);
   const [isLoaderVisible, setIsLoaderVisible] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     async function getMove() {
@@ -36,7 +37,9 @@ const Home = () => {
         <ul>
           {movies.map(({ id, title, name }) => (
             <li key={id}>
-              <Link to={`/movies/${id}`}>{title || name}</Link>
+              <Link to={`/movies/${id}`} state={{ from: location }}>
+                {title || name}
+              </Link>
             </li>
           ))}
         </ul>

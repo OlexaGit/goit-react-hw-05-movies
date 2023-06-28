@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Outlet, Link, useParams } from 'react-router-dom';
+import { Outlet, Link, useParams, useLocation } from 'react-router-dom';
 import { detailsMovies } from '../Api/JsonthemoviedbApi';
+import Button from '../button/Button';
 import ErrorWrapper from 'pages/Error/ErrorWrapper';
 import css from './MovieDetails.module.css';
 
@@ -9,6 +10,8 @@ const MovieDetails = () => {
   const [movies, setMovies] = useState([]);
   const [genres, setGenres] = useState([]);
   const [isError, setIsError] = useState(false);
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? '';
 
   useEffect(() => {
     async function getMove() {
@@ -28,10 +31,10 @@ const MovieDetails = () => {
   }, [id]);
 
   const { title, vote_average, overview, backdrop_path } = movies;
-  // console.log(movies);
+
   return (
     <main>
-      <button>Go back</button>
+      <Button to={backLinkHref} />
       <ErrorWrapper isError={isError}>
         <div className={css.details}>
           <img
