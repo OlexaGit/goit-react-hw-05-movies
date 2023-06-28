@@ -1,4 +1,4 @@
-import { useSearchParams, Link } from 'react-router-dom';
+import { useSearchParams, Link, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import css from './cssPages/Movies.module.css';
 import ErrorWrapper from './Error/ErrorWrapper';
@@ -8,6 +8,7 @@ const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [movies, setMovies] = useState([]);
   const [isError, setIsError] = useState(false);
+  const location = useLocation();
   const query = searchParams.get('query') ?? '';
 
   useEffect(() => {
@@ -54,7 +55,8 @@ const Movies = () => {
             <li key={id}>
               <Link
                 to={`/movies/${id}`}
-                state={{ from: `/movies?query=${query}` }}
+                // state={{ from: `/movies?query=${query}` }}
+                state={{ from: location }}
               >
                 {title || name}
               </Link>

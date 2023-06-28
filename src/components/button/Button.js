@@ -7,7 +7,7 @@ const Button = ({ to }) => {
 
   const goHomeHandler = () => setGoBackToHome(true);
 
-  console.log(to);
+  // console.log(to);
   if (goBackToHome) {
     return <Link to={to}></Link>;
   }

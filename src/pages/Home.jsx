@@ -37,7 +37,11 @@ const Home = () => {
         <ul>
           {movies.map(({ id, title, name }) => (
             <li key={id}>
-              <Link to={`/movies/${id}`} state={{ from: location }}>
+              <Link
+                to={`/movies/${id}`}
+                // state={{ from: '/' }}
+                state={{ from: location }}
+              >
                 {title || name}
               </Link>
             </li>

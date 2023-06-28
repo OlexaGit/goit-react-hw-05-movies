@@ -13,7 +13,7 @@ const SharedLayout = () => {
             to="/"
             className={css.link}
             style={handleActiveStyle}
-            state={{ from: 'navBar' }}
+            // state={{ from: 'navBar' }}
           >
             Home
           </NavLink>
