@@ -32,7 +32,7 @@ const MovieDetails = () => {
   }, [id]);
 
   const { title, vote_average, overview, backdrop_path } = movies;
-  console.log(location.pathname);
+
   return (
     <main>
       <Button to={backLinkHref.current} />

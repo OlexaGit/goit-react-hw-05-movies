@@ -11,12 +11,7 @@ const SharedLayout = () => {
     <section className={css.container}>
       <header className={css.header}>
         <nav className={css.nav}>
-          <NavLink
-            to="/"
-            className={css.link}
-            style={handleActiveStyle}
-            // state={{ from: 'navBar' }}
-          >
+          <NavLink to="/" className={css.link} style={handleActiveStyle}>
             Home
           </NavLink>
           <NavLink

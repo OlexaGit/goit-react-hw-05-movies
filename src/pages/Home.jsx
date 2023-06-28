@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
-// import PropTypes from 'prop-types';
+import { Link, useLocation } from 'react-router-dom';
 import Loader from '../components/Loader/Loader';
 import { getMovies } from '../components/Api/JsonthemoviedbApi';
 import ErrorWrapper from './Error/ErrorWrapper';
-import { Link, useLocation } from 'react-router-dom';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);

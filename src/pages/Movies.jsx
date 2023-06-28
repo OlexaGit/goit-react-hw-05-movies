@@ -1,5 +1,5 @@
-import { useSearchParams, Link, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useSearchParams, Link, useLocation } from 'react-router-dom';
 import css from './cssPages/Movies.module.css';
 import ErrorWrapper from './Error/ErrorWrapper';
 import { searchMovies } from 'components/Api/JsonthemoviedbApi';
@@ -12,9 +12,6 @@ const Movies = () => {
   const query = searchParams.get('query') ?? '';
 
   useEffect(() => {
-    // if (query === '' || query === null) {
-    //   return setSearchParams({});
-    // }
     async function getMove() {
       try {
         const data = await searchMovies(query);
