@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import Loader from '../components/Loader/Loader';
 import { getMovies } from '../components/Api/JsonthemoviedbApi';
 import ErrorWrapper from './Error/ErrorWrapper';
-// import Info from 'components/Info/Info';
 import { Link, useLocation } from 'react-router-dom';
 
 const Home = () => {
@@ -37,17 +36,12 @@ const Home = () => {
         <ul>
           {movies.map(({ id, title, name }) => (
             <li key={id}>
-              <Link
-                to={`/movies/${id}`}
-                // state={{ from: '/' }}
-                state={{ from: location }}
-              >
+              <Link to={`/movies/${id}`} state={{ from: location }}>
                 {title || name}
               </Link>
             </li>
           ))}
         </ul>
-        {/* {totalHits === 0 && <Info />} */}
       </ErrorWrapper>
     </main>
   );

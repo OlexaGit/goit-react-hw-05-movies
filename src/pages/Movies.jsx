@@ -12,9 +12,9 @@ const Movies = () => {
   const query = searchParams.get('query') ?? '';
 
   useEffect(() => {
-    if (query === '' || query === null) {
-      return setSearchParams({});
-    }
+    // if (query === '' || query === null) {
+    //   return setSearchParams({});
+    // }
     async function getMove() {
       try {
         const data = await searchMovies(query);
@@ -53,11 +53,7 @@ const Movies = () => {
         <ul>
           {movies.map(({ id, title, name }) => (
             <li key={id}>
-              <Link
-                to={`/movies/${id}`}
-                // state={{ from: `/movies?query=${query}` }}
-                state={{ from: location }}
-              >
+              <Link to={`/movies/${id}`} state={{ from: location }}>
                 {title || name}
               </Link>
             </li>

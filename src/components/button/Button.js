@@ -4,10 +4,8 @@ import css from './Button.module.css';
 
 const Button = ({ to }) => {
   const [goBackToHome, setGoBackToHome] = useState(false);
-
   const goHomeHandler = () => setGoBackToHome(true);
 
-  // console.log(to);
   if (goBackToHome) {
     return <Link to={to}></Link>;
   }
