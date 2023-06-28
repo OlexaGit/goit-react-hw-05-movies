@@ -52,7 +52,12 @@ const Movies = () => {
         <ul>
           {movies.map(({ id, title, name }) => (
             <li key={id}>
-              <Link to={`/movies/${id}`}>{title || name}</Link>
+              <Link
+                to={`/movies/${id}`}
+                state={{ from: `/movies?query=${query}` }}
+              >
+                {title || name}
+              </Link>
             </li>
           ))}
         </ul>

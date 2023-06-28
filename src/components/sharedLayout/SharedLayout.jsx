@@ -17,7 +17,12 @@ const SharedLayout = () => {
           >
             Home
           </NavLink>
-          <NavLink to="/movies" className={css.link} style={handleActiveStyle}>
+          <NavLink
+            to="/movies"
+            className={css.link}
+            style={handleActiveStyle}
+            state={{ from: '/movies' }}
+          >
             Movies
           </NavLink>
         </nav>
