@@ -3,13 +3,13 @@ import css from './NotFound.module.css';
 
 function NotFound() {
   const navigate = useNavigate();
-  const goHomeHandler = () => navigate('/', { replace: true });
+
+  setTimeout(() => {
+    navigate('/', { replace: true });
+  }, 1500);
 
   return (
     <>
-      <button className={css.button} onClick={goHomeHandler}>
-        🔙 Go back
-      </button>
       <h1 className={css.NotFound}>404 Page not found!</h1>
     </>
   );
